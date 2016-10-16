@@ -1,0 +1,39 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+N = 5
+c1 = (1000000,3900000,1000000,4000000,3500000)
+c2 = (0,0,0,0,0)
+
+ind = np.arange(N)  # the x locations for the groups
+width = 0.15      # the width of the bars
+
+fig, ax = plt.subplots()
+rects1 = ax.bar(ind, c1, width, color='r', yerr=c2)
+
+w1 = (500000,500000,100050,4000000,1500000)
+w2 = (0,0,0,0,0)
+rects2 = ax.bar(ind + width, w1, width, color='y', yerr=w2)
+
+# add some text for labels, title and axes ticks
+ax.set_ylabel('FUNDING AMOUNT IN $')
+ax.set_xlabel('COUNTRIES')
+ax.set_title('FUNDING VS COUNTRY')
+ax.set_xticks(ind + width)
+ax.set_xticklabels(('IND', 'USA', 'GBR', 'FRA', 'CHN'))
+
+ax.legend((rects1[0], rects2[0]), ('OPERATIONAL', 'ACQUIRED'))
+
+
+def autolabel(rects):
+    # attach some text labels
+    for rect in rects:
+        height = rect.get_height()
+        ax.text(rect.get_x() + rect.get_width()/3., 1.05*height,
+                '%d' % int(height),
+                ha='center', va='bottom',rotation='vertical')
+
+autolabel(rects1)
+autolabel(rects2)
+
+plt.show()
