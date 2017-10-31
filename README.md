@@ -6,5 +6,6 @@
 <li>Y-axis as the funding amount</li> </ul>
 <li> The related trends are ploted with the <b> TECH CRUNCH data</b></li>
 <li> Over the span of 10 years</li>
+<li>contribute to the repo with new numpy updates<li>
 </ol>
 
